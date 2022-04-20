@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size:10px;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/999ca2bb93.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+  <style>
+  
+
+ 
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+        $(document).ready(function()
+	    {
+         $('#kk').hide();
+         $('#kk2').hide();
+         $('#data').hide();
+        $('#resource_type').change(function(){
+       if($(this).val() == 'Compute instance'){
+        $('#kk').show();
+        $('#data').hide();
+        $('#kk2').hide();
+         }
+   
+        }); 
+        
+         $('#resource_type').change(function(){
+       
+       if($(this).val() == 'Service account'){
+         $('#kk').hide();
+       $('#kk2').hide();
+         $('#data').hide();
+         }
+   
+       
+        }); 
+        
+        $('#resource_type').change(function(){
+       
+       if($(this).val() == 'Big query'){
+        $('#data').show();
+         $('#kk').hide();
+         $('#kk2').hide();
+         }
+ }); 
+        $('#resource_type').change(function(){
+       
+       if($(this).val() == 'GCS bucket'){
+       $('#kk2').show();
+         $('#kk').hide();
+         $('#data').hide();
+         }
+   
+       
+        }); 
+       $('#back').click(function()
+	    {
+		 window.location.assign("/");
+		});
+
+
+});        
+  </script>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div style="font-size: 23px;" class="collapse navbar-collapse" id="navbar">
+          <div class="navbar-nav">
+           <img style="font-size:20px;margin-left:-10px;" src="{{url_for('static', filename='cp1.jpg')}}"/>  
+            {% if user.is_authenticated %}
+         <button class="btn btn-primary" style="font-size:20px;margin-left:970px;color:white;" type="button" id="id2" data-toggle="modal" data-target="#myModal">Profile</button> 
+             <!--    <button style="font-size:15px;margin-left:1000px;" id="back" class="btn btn-primary" type="submit">Profile</button>  -->
+             <button style="font-size:20px;margin-left:1090px;" id="back" class="btn btn-primary" type="submit">Logout</button>
+             <li class="nav-link-start" style='float:right;'>
+             <h1 id="id" style="color:white; !important;border-color:#008CBA !important; margin-left:-430px; " class="text-center font-weight-light my-4">
+                       Welcome {{user.username}}</h1>
+                
+					        
+             {% else %}
+            </li>
+           
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <div style="font-size: 14px;" class="alert alert-danger alter-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% else %}
+    <div style="font-size: 14px;" class="alert alert-success alter-dismissible fade show" role="alert">
+      {{ message }}
+      <button style="font-size: 14px;" type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+    <div class="container">{% block content %}{% endblock %}</div>
+    
+
+  <br>
+    
+     <style>
+     #hk{
+     font-size:15px;
+     }
+      #hk1{
+     font-size:15px;
+     }
+     #hk3{
+     font-size:15px;
+     }
+     #hk4{
+     font-size:15px;
+     }
+	.card-header{
+	  
+		  background-color:white;
+		
+	}
+    .Box
+	{
+	      width: 500px;
+		   border: 4px solid white;
+		  background-color:white;
+		  padding: 10px;
+		  margin: 20px;
+		  line-spacing:1.5rem;
+		  line-height:2rem;
+		  margin-left:385px;
+		  margin-top:-10px;
+	}
+	.form-control1 py-4
+	{
+	  width:400px;
+	  margin-left:40px;
+	  margin-top:5px;
+       font-size:15px;
+	}
+    .form-control
+	{
+	  width:300px;
+	  margin-left:144px;
+	  margin-top:-32px;
+       font-size:17px;
+	}
+  
+html, body {
+ 
+  overflow-x:hidden;
+  height:100%;
+}
+
+  </style>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    >
+    </script>
+     
+
+<br>
+<body>
+      <h2 style="margin-left:350px;color:black;font-size:35px;font-family: 'Roboto Slab', serif;">WELCOME TO IND-COE</h2>
+	<form style="margin: 0 auto; " method="POST">
+    <br>
+	 <br>
+    <br>
+    <div class="card-header">
+	
+ <div class="Box">
+	
+		     
+              
+			 <br>
+             
+            
+              <label id="hk" for="project">PROJECT ID :</label>
+				<select class="form-select form-control" name="project" id="project"> 
+                                                        <option value="" selected hidden>SELECT PROJECT</option>
+                                                        <option  value="gcp-cube-321106">gcp-cube-321106</option>
+                                                        
+														  
+														  
+                                                         </select>
+			  
+		 <!--  <input
+      type="text"
+      id="project"
+      name="project"
+      class="form-control"
+      placeholder="ENTER PROJECT"
+    />-->
+     <br><br>
+      <label id="hk" for="resource_type">RESOURCE_TYPE :</label> 
+		 <select class="form-select form-control"  name="resource_type" id="resource_type"> 
+                                                        <option value="" selected hidden>SELECT TYPE</option>
+                                                        <option  value="Compute instance">Compute instance</option>
+                                                        <option value="Service account">Service account</option>
+														  <option value="Big query">Big query</option>
+														  <option value="GCS bucket">GCS bucket</option>
+                                                         </select>
+     <br><br>
+     <!--Compute instance start-->
+     <div id="kk">
+      <label id="hk1" for="MACHINE_TYPE">MACHINE_TYPE :</label> 
+		   <select class="form-select form-control" id="machine_type"
+      name="machine_type">
+                                                        <option value="" selected hidden>SELECT TYPE</option>
+                                                        <option value="e2-standard-2(2 Vcp, 8 GB Memory)">e2-standard-2(2 Vcp, 8 GB Memory)</option>
+                                                        <option value="e2-Medium(2 Vcp, 4 GB Memory)">e2-Medium(2 Vcp, 4 GB Memory)</option>
+														  <option value="e2-micro(2 Vcp, 2 GB Memory)">e2-micro(2 Vcp, 2 GB Memory)</option>
+                                                        <option value="e2-small(2 Vcp, 2 GB Memory)">e2-small(2 Vcp, 2 GB Memory)</option>
+														 
+                                                         </select>
+    
+     <br><br>
+     
+      <label id="hk1" for="ZONE">ZONE :</label> 
+	   <select class="form-select form-control" id="zone"
+      name="zone">
+		                                               <option value="" selected hidden>SELECT TYPE</option>
+                                                        
+                                                         <option value="Us-central1-a">Us-central1-a</option>
+														  
+                                                      
+														
+                                                         </select>
+    <br><br>
+     <label id="hk1" for="SERVICE_ACCOUNT">SERVICE_ACCOUNT :</label> 
+		  <select class="form-select form-control"id="service_account"
+      name="service_account">
+                                                        <option value="" selected hidden>SELECT TYPE</option>
+                                                        <option value="ind-coe-infra@gcp-cube-321106.iam.gserviceaccount.com">ind-coe-infra@gcp-cube-321106.iam.gserviceaccount.com</option>
+                                                       
+                                                         </select>
+    <br><br>
+     <label id="hk1" for="ACCESS_SCOPES">ACCESS_SCOPES :</label> 
+		  <select class="form-select form-control" id="access_scopes"
+      name="access_scopes">
+		                                               <option value="" selected hidden>SELECT TYPE</option>
+                                                        <option value="Allow default access">Allow default access</option>
+                                                         <option value="Allow full access to all cloud APls">Allow full access to all cloud APls</option>
+														  <option value="Set access for each APl">Set access for each APl</option>
+                                                       
+														 
+                                                         </select>
+    <br><br>
+    </div>
+    <!--Compute instance end-->
+     <!--big_query start -->
+    <div id="data">
+     <label id="hk1" for="dataset_name">DATASET_NAME :</label> 
+		   <input
+      type="text"
+      id="dataset_name"
+      name="dataset_name"
+      class="form-control"
+      placeholder="ENTER DATASET_NAME"
+    />
+    <br><br>
+    <label id="hk4" for="DATA LOCATION">DATA LOCATION :</label> 
+		<select class="form-select form-control" name="data_location"  id="data_location">
+                                                        <option value="selected hidden">SELECT TYPE</option>
+                                                        <option value="Us-central1-a">us-central1-a</option>
+                                                        <option value="Us-west1">us-west1</option>
+														<option value="Us-west1">us-east1</option>
+														 
+                                                         </select>
+    
+    <br><br>
+    
+    </div>
+     <!--big_query end -->
+    <!--GCS BUCKET -->
+    <div id="kk2">
+      <label id="hk1" for="Gcs-Bucket-Location">Gcs-Bucket-Location :</label> 
+		   <select class="form-select form-control" name="Gcs_bucket_Location" id="Gcs_bucket_Location">
+            <option value="selected hidden">SELECT TYPE</option>
+                                             <option value="Gcs_bucket_Location">Gcs_bucket_Location</option>
+                                             <option value="us(multiple regions in unites states)">us(multiple regions in unites states)</option>
+                                             <option value="Europe-waet2(london)">Europe-waet2(london)</option> 
+											 
+											 </select>
+      
+      
+    
+     <br><br>
+     
+      <label id="hk1" for="STORAGE_CLASS">STORAGE_CLASS :</label> 
+		 <select class="form-select form-control"       id="storage_class"
+      name="storage_class">
+         <option value="" selected hidden>SELECT TYPE</option>
+                                             <option value="STORAGE_CLASS">STORAGE_CLASS</option>
+                                             <option value="Standard hidden">Standard</option>
+                                             <option value="Codeline hidden">Codeline</option>
+                                             <option value="Nearline hidden">Nearline </option>
+											 <option value="Archive hidden">Archive</option	>										 
+											      </select>
+												  
+     <br><br>
+	 
+     <label id="hk1" for="ROLE">ROLE :</label> 
+		   
+     <select class="form-select form-control"  id="role"
+      name="role">
+                                             <option value="" selected hidden>SELECT TYPE</option>
+                                             <option value="Storage.objectCreator">Storage.objectCreator</option>
+                                             <option value="Storage.objectAdmin">Storage.objectAdmin</option>
+                                             <option value="Storage.objectViewer">Storage.objectViewer </option>
+											 									 
+											      </select>
+											
+    <br><br>
+     <label id="hk1" for="SERVICE_ACCOUNT">SERVICE_ACCOUNT :</label> 
+		   
+      <select class="form-select form-control"  id="service_account1"
+      name="service_account1">
+                                             <option value="" selected hidden>SELECT TYPE</option>
+                                             
+                                             <option value="ind-coe-infra@gcp-cube-321106.iam.gserviceacoount.com">ind-coe-infra@gcp-cube-321106.iam.gserviceacoount.com</option>
+                                             
+											      </select>
+					
+    <br><br>
+    <label id="hk1" for="ACCESS_CONTROL">ACCESS_CONTROL :</label> 
+		   
+     <select class="form-select form-control" id="access_control"
+      name="access_control">
+                                             <option value="" selected hidden>SELECT TYPE</option>
+                                             <option value="Uniform">Uniform</option>
+                                             <option value="Fine-grained">Fine-grained</option>
+                                             
+											      </select>
+											
+    <br><br>
+    </div>
+     <!--big_query end -->
+    
+      <label id="hk3" for="approver">Approver :</label> 
+		<select class="form-select form-control" name="approver"  id="approver">
+                                                        <option value="" selected hidden>SELECT TYPE</option>
+                                                        <option value="IND-COE">IND-COE</option>
+                                                       
+                                                         </select>
+    
+     <br><br>
+     
+   
+		   <button style="margin-left: 160px;font-size: 13px;" type="submit" class="btn btn-primary"  id="submit">SUBMIT</button>
+		<!--  <button type="button" class="btn btn-primary" id='back' style='background-color:blue;color:white;width:15%;right:73%;font-size:15px;margin-right:49%;' href="/login">LOGIN</button> -->
+		<br>
+     <!--    <div class="small" style="margin-left: 130px; margin-top: -35px;font-size: 13px;"><a style="color: blue;" href="/login">Have an account? Go to login</a></div> -->
+                                   
+	</div>
+	</div>
+    </form>
+   <div class="container">
+  
+  <!-- Trigger the modal with a button -->
+  
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"></button>
+        
+          <h1 class="dropdown-item" style="color:#008CBA; !important;border-color:#008CBA; !important"  class="modal-title">PROFILE</h1>
+        </div>
+        <div class="modal-body">
+           <form>
+                                              {% for pro in qry %}
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1" for="inputFirstName">NAME</label>
+                                                        <input class="form-control py-4" id="inputFirstName" value="{{pro.project}}" type="text" placeholder="Enter Name" readonly />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1" for="Employee">EMPLOYEE ID</label>
+                                                        <input class="form-control py-4" id="EmployeeId" value="{{pro.resource_type}}" type="text" placeholder="Employee Id" readonly />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1" for="project">MANAGER</label>
+                                                        <input class="form-control py-4" id="project" value="{{pro.manager}}" type="text" placeholder="Enter project" readonly />
+                                                    </div>
+                                                </div>
+                                           
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1" for="designation">DESIGNATION</label>
+                                                        <input class="form-control py-4" id="designation" value="{{pro.designation}}" type="text" placeholder="Enter designation" readonly />
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            
+                                             <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1" for="pref_email">EMPLOYEE ADDRESS</label>
+                                                        <input class="form-control py-4" id="pref_email" value="{{pro.pref_email}}" type="email" placeholder="Enter email" readonly />
+                                                    </div>
+                                                </div>
+                                           
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="small mb-1" for="Password">ROLE</label>
+                                                        <input class="form-control py-4" id="person" value="{{pro.person}}" type="text" placeholder="person" readonly />
+                                                    </div>
+                                                </div>
+                                                </div>
+                                             
+                                         {% endfor %}     
+                                        </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+ 
+</div>
+      
+    
+  </body>
+</html>

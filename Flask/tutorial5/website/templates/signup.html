@@ -1,0 +1,86 @@
+{% extends "base1.html" %} {% block title %}Sign Up{% endblock %} {% block
+content %}
+<head>
+	<title>Details Page</title>
+	 
+     
+      
+	 </script>
+ <style>
+    .Box
+	{
+	      width: 500px;
+		 
+		  padding: 10px;
+		  margin: 20px;
+		  line-spacing:1.5rem;
+		  line-height:2rem;
+		  margin-left:330px;
+		  margin-top:35px;
+	}
+	.form-control
+	{
+	  width:300px;
+	  margin-left:144px;
+	  margin-top:-32px;
+       font-size:17px;
+	}
+     #hk{
+     font-size:15px;
+     }
+  </style>
+
+
+<body>
+    <h1 style="margin-left:440px;color:orange;font-family: 'Roboto Slab', serif;">REGISTER FORM</h1>
+	<form method="POST">
+    <div class="Box">
+	
+		     <h2 style="margin-left:190px;color:orange;font-family: 'Roboto Slab', serif;">DETAILS</h2>
+			  <br><br>
+             <label id="hk" for="email">EMAIL :</label> 
+		   <input
+      type="text"
+      id="email"
+      name="email"
+      class="form-control"
+      placeholder="Enter Email"
+    />
+     <br><br>
+     <label id="hk" for="username">USERNAME :</label> 
+		  <input
+      type="text"
+      id="username"
+      name="username"
+      class="form-control"
+      placeholder="Enter Username"
+    />
+     <br><br>
+      <label id="hk" for="password1">PASSWORD :</label>
+		  <input
+      type="password"
+      id="password1"
+      name="password1"
+      class="form-control"
+      placeholder="Enter Password"
+    />
+     <br><br>
+     <label id="hk" for="password2">PASSWORD_AGAIN :</label>
+		 <input
+      type="password"
+      id="password2"
+      name="password2"
+      class="form-control"
+      placeholder="Enter Password Again"
+    />
+   <br><br>
+   
+		   <button style="margin-left: 160px;font-size: 13px;" type="submit" class="btn btn-primary" class="form-control" id="submit">SUBMIT</button>
+		<!--  <button type="button" class="btn btn-primary" id='back' style='background-color:blue;color:white;width:15%;right:73%;font-size:15px;margin-right:49%;' href="/login">LOGIN</button> -->
+		<br><br><br>
+        <div class="small" style="margin-left: 130px; margin-top: -35px;font-size: 13px;"><a style="color: blue;" href="/">Have an account? Go to login</a></div>
+                                   
+	</div>
+    </form>
+  </body>
+{% endblock %}
